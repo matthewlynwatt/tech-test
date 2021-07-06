@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+// Header
+
+.header {
+  text-align: center;
+  color: #a8a8a8;
+  font-size: 2.5rem;
+}
+
+// Main - list
+
+.house {
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__box {
+    width: 10em;
+    height: 7em;
+    margin: 1em;
+  }
+
+  &__image {
+    width: 10em;
+    height: 7em;
+  }
+
+  &__image:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  &__address {
+    font-size: 0.8em;
+  }
+}

@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react'
+
+import './style.scss';
+import Header from './Components/Header'
+import Main from './Components/Main'
+
 
 function App() {
+
+  const [getHouse, setGetHouse] = useState([])
+
+    async function fetchData() {
+    const resp = await fetch(`https://estate-comparison.codeboot.cz/list.php`);
+    const data = await resp.json();
+    setGetHouse(data)
+
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header />
+    <Main result={getHouse}/>
+    </>
   );
 }
 
